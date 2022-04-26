@@ -1,17 +1,22 @@
+<p>cliente-update works!</p>
 <div class="container mat-elevation-z8">
   <form action="" class="form">
     .
-    <h1 class="fullWidth">Deletar Técnico</h1>
-    <img class="fullWidth" src="assets/img/tecnico-create.svg" alt="Disca" />
+    <h1 class="fullWidth">Modificar Cliente</h1>
+    <img class="fullWidth" src="assets/img/cliente-create.svg" alt="Disca" />
 
     <section class="section">
-      <mat-checkbox [disabled]="true" class="margin" color="primary"
+      <mat-checkbox (click)="addPerfil(0)" class="margin" color="primary"
         >Admin</mat-checkbox
       >
-      <mat-checkbox [disabled]="true" class="margin" color="primary"
+      <mat-checkbox
+        (click)="addPerfil(1)"
+        [checked]="true"
+        class="margin"
+        color="primary"
         >Cliente</mat-checkbox
       >
-      <mat-checkbox [disabled]="true" class="margin" color="primary"
+      <mat-checkbox (click)="addPerfil(2)" class="margin" color="primary"
         >Técnico</mat-checkbox
       >
     </section>
@@ -19,27 +24,40 @@
     <mat-form-field class="fullWidth" appearance="legacy">
       <mat-label>Nome</mat-label>
       <input
-        [(ngModel)]="tecnico.nome"
+        [(ngModel)]="cliente.nome"
         name="nome"
+        required
+        [formControl]="nome"
         matInput
-        [disabled]="true"
+        placeholder="Ex... João"
+        maxlength="50"
       />
       <mat-icon matSuffix>person</mat-icon>
     </mat-form-field>
 
     <mat-form-field class="fullWidth" appearance="legacy">
       <mat-label>CPF</mat-label>
-      <input [(ngModel)]="tecnico.cpf" name="cpf" matInput [disabled]="true" />
+      <input
+        [(ngModel)]="cliente.cpf"
+        name="cpf"
+        required
+        [formControl]="cpf"
+        matInput
+        placeholder="Ex... 000.000.000-00"
+        mask="000.000.000-00"
+      />
       <mat-icon matSuffix>pin</mat-icon>
     </mat-form-field>
 
     <mat-form-field class="fullWidth" appearance="legacy">
       <mat-label>Email</mat-label>
       <input
-        [(ngModel)]="tecnico.email"
+        [(ngModel)]="cliente.email"
         name="email"
+        required
+        [formControl]="email"
         matInput
-        [disabled]="true"
+        placeholder="Ex... mail@email.com"
       />
       <mat-icon matSuffix>email</mat-icon>
     </mat-form-field>
@@ -47,22 +65,25 @@
     <mat-form-field class="fullWidth" appearance="legacy">
       <mat-label>Senha</mat-label>
       <input
-        [(ngModel)]="tecnico.senha"
+        [(ngModel)]="cliente.senha"
         name="senha"
-        matInput
-        [disabled]="true"
+        required
+        [formControl]="senha"
         type="password"
+        matInput
+        placeholder="Ex... 123"
       />
       <mat-icon matSuffix>key</mat-icon>
     </mat-form-field>
 
     <button
-      (click)="delete()"
+      [disabled]="!validaCampos()"
+      (click)="update()"
       class="fullWidth mat-elevation-z8"
       mat-flat-button
       color="primary"
     >
-      Deletar
+      Atualizar
     </button>
     <button
       routerLink="../../"
