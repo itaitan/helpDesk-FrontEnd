@@ -1,6 +1,12 @@
 .container {
   height: 100%;
-  background: linear-gradient(90deg, rgba(57,168,244,1) 0%, rgba(29,187,213,1) 23%, rgba(14,187,222,1) 91%, rgba(0,212,255,1) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(57, 168, 244, 1) 0%,
+    rgba(29, 187, 213, 1) 23%,
+    rgba(14, 187, 222, 1) 91%,
+    rgba(0, 212, 255, 1) 100%
+  );
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,20 +23,17 @@
 h1 {
   width: 100%;
   text-align: center;
-
 }
-img{
+img {
   height: 15rem;
   width: 100%;
   margin: 1.5rem auto 1.5 auto;
 }
 
-.full-width{
+.full-width {
   width: 100%;
-
 }
 
-button{
-  margin-top: 1.5rem ;
+button {
+  margin-top: 1.5rem;
 }
-

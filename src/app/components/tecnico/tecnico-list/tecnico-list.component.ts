@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
@@ -12,6 +13,8 @@ import { TecnicoService } from 'src/app/services/tecnico.service';
 export class TecnicoListComponent implements OnInit {
   ELEMENT_DATA: Tecnico[] = [];
 
+  tecnico$: Observable<Tecnico[]>;
+
   displayedColumns: string[] = [
     'position',
     'name',
@@ -23,7 +26,9 @@ export class TecnicoListComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private service: TecnicoService) {}
+  constructor(private service: TecnicoService) {
+    this.tecnico$ = this.service.findall();
+  }
 
   ngOnInit(): void {
     this.findAll();
@@ -41,5 +46,4 @@ export class TecnicoListComponent implements OnInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-
 }
