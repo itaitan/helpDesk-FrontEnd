@@ -28,3 +28,9 @@ h1 {
 .delete {
   color: rgb(235, 61, 61);
 }
+
+.loading-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
