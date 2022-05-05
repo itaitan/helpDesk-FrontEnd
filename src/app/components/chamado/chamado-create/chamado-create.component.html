@@ -5,14 +5,19 @@
   <form class="form">
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Título do chamado</mat-label>
-      <input matInput placeholder="Trocar bateria de nootbook" />
+      <input
+        matInput
+        placeholder="Trocar bateria de nootbook"
+        [formControl]="titulo"
+        required
+      />
     </mat-form-field>
   </form>
 
   <div class="status-prioridade">
     <mat-form-field appearance="outline">
       <mat-label>Prioridade</mat-label>
-      <mat-select>
+      <mat-select [formControl]="prioridade" required>
         <mat-option value="0">Baixa</mat-option>
         <mat-option value="1">Média</mat-option>
         <mat-option value="2">Alta</mat-option>
@@ -21,7 +26,7 @@
 
     <mat-form-field appearance="outline">
       <mat-label>Status</mat-label>
-      <mat-select>
+      <mat-select [formControl]="status" required>
         <mat-option value="0">Aberto</mat-option>
         <mat-option value="1">Em Andamento</mat-option>
         <mat-option value="2">Encerrado</mat-option>
@@ -32,7 +37,7 @@
   <div class="tecnico">
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Selecione um técnico</mat-label>
-      <mat-select>
+      <mat-select [formControl]="tecnico" required>
         <mat-option value="0">Valdir</mat-option>
       </mat-select>
     </mat-form-field>
@@ -41,7 +46,7 @@
   <div class="cliente">
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Selecione um cliente</mat-label>
-      <mat-select>
+      <mat-select [formControl]="cliente" required>
         <mat-option value="0">Bruno</mat-option>
       </mat-select>
     </mat-form-field>
@@ -54,11 +59,18 @@
         class="descricao"
         matInput
         placeholder="Ex. Trocar fonte queimada"
+        [formControl]="descricao"
+        required
       ></textarea>
     </mat-form-field>
   </form>
 
-  <button mat-raised-button color="primary" class="full-width mat-elevation-z4">
+  <button
+    mat-raised-button
+    color="primary"
+    class="full-width mat-elevation-z4"
+    [disabled]="!validaCampos()"
+  >
     Adiscionar
   </button>
   <button mat-stroked-button color="warn" class="full-width mat-elevation-z4">
