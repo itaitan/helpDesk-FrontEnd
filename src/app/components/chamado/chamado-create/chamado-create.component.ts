@@ -31,7 +31,7 @@ export class ChamadoCreateComponent implements OnInit {
   prioridade: FormControl = new FormControl(null, [Validators.required]);
   status: FormControl = new FormControl(null, [Validators.required]);
   titulo: FormControl = new FormControl(null, [Validators.required]);
-  descricao: FormControl = new FormControl(null, [Validators.required]);
+  observacao: FormControl = new FormControl(null, [Validators.required]);
   tecnico: FormControl = new FormControl(null, [Validators.required]);
   cliente: FormControl = new FormControl(null, [Validators.required]);
 
@@ -76,7 +76,7 @@ export class ChamadoCreateComponent implements OnInit {
       this.prioridade.valid &&
       this.status.valid &&
       this.titulo.valid &&
-      this.descricao.valid &&
+      this.observacao.valid &&
       this.tecnico.valid &&
       this.cliente.valid
     );
