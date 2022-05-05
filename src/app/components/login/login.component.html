@@ -4,7 +4,7 @@
 
     <img src="assets/img/login-image.svg" alt="Login - Help desk" />
 
-    <mat-form-field class="full-width" appearance="fill">
+    <mat-form-field class="full-width" appearance="outline">
       <mat-label>E-mail</mat-label>
       <input
         [formControl]="email"
@@ -14,9 +14,10 @@
         matInput
         placeholder="Ex. exemplo@mail.com"
       />
+      <mat-icon class="icon" matSuffix>email</mat-icon>
     </mat-form-field>
 
-    <mat-form-field class="full-width" appearance="fill">
+    <mat-form-field class="full-width" appearance="outline">
       <mat-label>Senha</mat-label>
       <input
         [formControl]="senha"
@@ -27,6 +28,7 @@
         matInput
         placeholder="Sua senha"
       />
+      <mat-icon matSuffix>password</mat-icon>
     </mat-form-field>
 
     <button
