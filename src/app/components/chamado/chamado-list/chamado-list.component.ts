@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { ChamadoService } from './../../../services/chamado.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
@@ -12,6 +13,8 @@ import { Chamado } from 'src/app/models/chamado';
 export class ChamadoListComponent implements OnInit {
   ELEMENT_DATA: Chamado[] = [];
   FILTER_DATA: Chamado[] = [];
+
+  chamado$: Observable<Chamado[]>;
 
   displayedColumns: string[] = [
     'id',
@@ -28,7 +31,9 @@ export class ChamadoListComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private service: ChamadoService) {}
+  constructor(private service: ChamadoService) {
+    this.chamado$ = this.service.findAll();
+  }
 
   ngOnInit(): void {
     this.findAll();
