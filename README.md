@@ -1,3 +1,20 @@
+
+
+#Vercel 
+O projeto esta upado na Vercel
+https://help-desk-ita.vercel.app/login
+
+Para acesso é necessario efetuar o login com a senha:
+
+Login: itaitan@gmail.com
+senha: 123
+
+O back esta upado na Heroku e de la voce pode ver as requisições sobre as API
+
+Bons testes 
+
+
+
 # Helpdesk
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.3.
